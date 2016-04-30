@@ -1,2 +1,2 @@
 # django-scrum
-Lightweight django-rest-framework based project to enhance my python/django skills
+A django-rest-framework based project for enhance my python/django skills
