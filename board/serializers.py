@@ -69,19 +69,21 @@ class TaskSerializer(serializers.ModelSerializer):
         return links
 
     def validate_sprint(self, obj):
+        orig_task = self.instance
+        orig_sprint = getattr(orig_task, 'sprint', None)
         sprint = obj
 
-        if sprint != self.sprint:
-            if self.status == Task.STATUS_DONE:
-                msg = _('Cannot change the sprint of a completed task.')
-                raise serializers.ValidationError(msg)
-            if sprint and sprint.end < date.today():
-                msg = _('Cannot add tasks to past sprints.')
-                raise serializers.ValidationError(msg)
+        if (getattr(sprint, 'id', None) != getattr(orig_sprint, 'id', None) and 
+                int(self.initial_data['status']) == Task.STATUS_DONE):
+            raise serializers.ValidationError(_('Cannot change the sprint of a completed task.'))
+
+        if sprint and getattr(sprint, 'end', None) < date.today():
+            raise serializers.ValidationError(_('Cannot add tasks to past sprints.'))
+
         return sprint
 
-    def validate(self):
-        pass
+    # def validate(self):
+    #     pass
 
 
 class UserSerializer(serializers.ModelSerializer):
