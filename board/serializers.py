@@ -32,7 +32,7 @@ class SprintSerializer(serializers.ModelSerializer):
         if (new or changed) and (date_value < date.today()):
             msg = _('End date cannot be in the past.')
             raise serializers.ValidationError(msg)
-        return date
+        return date_value
 
 class TaskSerializer(serializers.ModelSerializer):
 
