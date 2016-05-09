@@ -3,7 +3,7 @@
 I started this project in order to get more knowledge about Django and Django Rest Framework and learn more about which several kind of ways I can build an API with python and it's frameworks nowadays. This project is an exercise from book [Lightweight Django
 Using REST, WebSockets, and Backbone](http://shop.oreilly.com/product/0636920032502.do). I've changed some parts of the project to support the newest versions of DRF 3.x, but the main idea of the project still the same.
 
-Recently I started to learn about continous integration with Docker and I though that this project could be my python lab, so I've added support to Docker containers on this project. If you want to run this application with Docker you'll need:
+Recently I started to learn about continous integration with Docker and I thought that this project could be my docker-python lab, so I've added support to Docker containers on this project. If you want to run this application with Docker you'll need:
 
 	[X] docker
 	[X] docker-compose
