@@ -1,0 +1,16 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=scrum
+  web:
+    build: .
+    command: bash -c "python manage.py makemigrations board 
+                        && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
