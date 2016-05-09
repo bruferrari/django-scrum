@@ -30,7 +30,7 @@ If you need a shell, run:
   ```
    docker-compose run django python manage.py shell
   ```
-You also can get access to all logs, for that run the following commands:
+You also can get access to all logs, for this run the following commands:
   ```
   docker-compose logs
   ```
